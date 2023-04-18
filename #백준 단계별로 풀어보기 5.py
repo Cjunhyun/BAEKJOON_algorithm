@@ -55,3 +55,30 @@ for i in e:
 
 result = ' '.join(str(s) for s in res)
 print(result)
+
+# 2675번
+n = int(input())
+for s in range(n):
+    m = list(map(str,input().split()))
+    x = m[0]
+    y = list(m[1])
+    res = []
+    for i in range(len(y)):
+        for j in range(int(x)):
+            res.append(y[i])
+    result = ''.join(str(s) for s in res)
+    print (result)
+
+# 1152번
+n = input()
+cnt = 1
+k = list(n)
+for i in k:
+    if(i  == ' '):
+        cnt += 1
+if(k[0] == ' ' and k[len(k) - 1 ] == ' '):
+    print(cnt - 2)
+elif(k[0] == ' ' or k[len(k) - 1 ] == ' '):
+    print(cnt - 1)
+else:
+    print(cnt)
