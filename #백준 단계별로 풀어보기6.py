@@ -49,3 +49,75 @@ for i in range(m):
 
 res = ' '.join(str(s) for s in n_list)
 print(res)
+
+#10988번
+s = input()
+s_list = list(s)
+
+check = 1
+for i in range(len(s_list)):
+    if(s_list[len(s_list)-1-i] != s_list[i]):
+        check = 0
+        
+print(check)
+
+# 1157번 공부해보기
+s = input().upper()
+s_list = list(set(s))
+res_list =[]
+
+for i in s_list:
+    res_list.append(s.count(i))
+
+
+if(res_list.count(max(res_list)) > 1):
+    print("?")
+else:
+    m_index = res_list.index(max(res_list))
+    print(s_list[m_index])
+
+# 4344번
+n = int(input())
+
+for i in range(n):
+    nums = list(map(int,input().split()))
+    n_cnt = nums[0]
+    n_sum = 0
+    n_avr = 0
+    for j in range(1,len(nums)):
+        n_sum += nums[j]
+
+    n_avr = n_sum/(n_cnt)
+    av_cnt = 0
+    for j in range(1,len(nums)):
+        if(nums[j] > n_avr):
+            av_cnt += 1
+    res = float((av_cnt/n_cnt)*100)
+    result = str(format(res,".3f"))
+    print(result+"%")
+
+# 2941번
+s = list(input())
+c_list = ['c=','c-','dz=','d-','lj','nj','s=','z=']
+check = 0
+idx = 0
+while(len(s) > idx):
+    if(idx == len(s)-1):
+        tem = s[idx]
+    else:
+        tem = s[idx] + s[idx +1]
+
+    if(tem in c_list):
+        check += 1
+        idx += 2
+    elif(tem != 'dz'):
+        check +=1
+        idx +=1
+    else:
+        if((len(s) - idx) >= 3 and s[idx +2] == '='):
+            check += 1
+            idx += 3
+        else:
+            check +=1
+            idx += 1
+print(check)
