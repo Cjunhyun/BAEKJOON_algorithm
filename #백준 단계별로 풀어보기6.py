@@ -121,3 +121,42 @@ while(len(s) > idx):
             check +=1
             idx += 1
 print(check)
+
+# 1316번
+n = int(input())
+res = 0
+
+for i in range(n):
+    s = list(input())
+    tem_list = []
+    tem = ''
+    check = 0
+
+    for k in s:
+        if(k == tem):
+            continue
+        elif(k != tem and  k not in tem_list):
+            tem = k
+            tem_list.append(k)
+        elif(k != tem and k in tem_list):
+            check = 1
+        
+    if(check == 0):
+        res += 1
+
+print(res)
+
+#25206
+score_dic = {"A+":4.5 , "A0":4.0, "B+": 3.5, "B0":3.0, "C+":2.5, "C0":2.0, "D+" : 1.5, "D0":1.0, "F": 0.0, "P": 0.0}
+sum_s = 0
+sum_c = 0
+for i in range(20):
+    s = list((input().split()))
+    if(s[2] != "P"):
+        score = score_dic[s[2]]
+        sub_score = float(s[1])
+        tem = (score*sub_score)
+        sum_s += tem
+        sum_c += sub_score
+
+print(sum_s/sum_c)
