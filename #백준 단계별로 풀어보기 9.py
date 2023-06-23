@@ -49,3 +49,50 @@ while(True):
         print(str(n) + ' = ' + res)
     else:
         print(str(n) + ' is NOT perfect.')
+
+# 1978번
+n = int(input())
+n_list = map(int,input().split())
+res  = 0
+
+for i in n_list:
+    check = 0
+    for k in range(1,i+1):
+        if(i%k == 0):
+            check += 1
+    if(check == 2):
+        res += 1
+print(res)
+
+#2581번
+m = int(input())
+n = int(input())
+res = []
+res_sum = 0
+
+for i in range(m,n+1):
+    check = 0
+    for k in range(1,i+1):
+        if(i % k == 0):
+            check += 1
+    if(check == 2):
+        res.append(i)
+        res_sum += i
+if (len(res) == 0):
+    print("-1")
+else:
+    print(res_sum)
+    print(res[0])
+
+# 11653번
+n = int(input())
+k = 2
+while(n > 1):
+
+    if(n % k == 0):
+        print(k)
+        n = n // k
+        
+
+    else:
+        k += 1
